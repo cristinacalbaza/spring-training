@@ -3,7 +3,7 @@ package ro.msg.learning.model;
 import lombok.*;
 import javax.persistence.*;
 
-@Entity
+@Entity(name = "Customer")
 @Table(name = "customer", schema = "shop")
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor @ToString @EqualsAndHashCode
 public class Customer {

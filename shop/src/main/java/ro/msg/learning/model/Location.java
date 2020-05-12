@@ -1,21 +1,23 @@
 package ro.msg.learning.model;
 
 import lombok.*;
+
 import javax.persistence.*;
 
-@Entity(name = "ProductCategory")
-@Table(name = "supplier", schema = "shop")
+@Entity(name = "Location")
+@Table(name = "location", schema = "shop")
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor @ToString @EqualsAndHashCode
-public class ProductCategory {
+public class Location {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, unique = true)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "description")
-    private String description;
+    @Embedded
+    private Address address;
+
 }
