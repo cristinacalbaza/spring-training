@@ -4,7 +4,7 @@ import lombok.*;
 import javax.persistence.*;
 
 @Entity(name = "ProductCategory")
-@Table(name = "supplier", schema = "shop")
+@Table(name = "product_category", schema = "shop")
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor @ToString @EqualsAndHashCode
 public class ProductCategory {
 
