@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication
 @ComponentScan(basePackages = {"ro.msg.learning"})
 @EntityScan(basePackages = {"ro.msg.learning.model"})
-@EnableJpaRepositories("ro.msg.learning.dao")
+@EnableJpaRepositories("ro.msg.learning.repository")
 public class ShopApplication {
 
 	public static void main(String[] args) {
