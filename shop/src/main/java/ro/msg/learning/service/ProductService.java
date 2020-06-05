@@ -2,10 +2,13 @@ package ro.msg.learning.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import ro.msg.learning.dto.ProductDto;
 import ro.msg.learning.model.Product;
 import ro.msg.learning.repository.ProductRepository;
 import ro.msg.learning.service.exception.ProductNotFoundException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,35 +16,41 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class ProductService {
 
-
     private final ProductRepository productRepository;
 
-    public Product get(int id) throws ProductNotFoundException {
+    public ProductDto get(int id) throws ProductNotFoundException {
         Optional<Product> product = productRepository.findById(id);
-        return product.orElseThrow(() -> new ProductNotFoundException(id));
+        if (!product.isPresent())
+            throw new ProductNotFoundException(id);
+        return new ProductDto(product.get());
     }
 
-    public List<Product> getAll(){
-        return productRepository.findAll();
+    public List<ProductDto> getAll(){
+        List<ProductDto> productDtos = new ArrayList<>();
+        productRepository.findAll().forEach(product -> productDtos.add(new ProductDto(product)));
+        return productDtos;
     }
 
-    public Product save(Product product){
-        return productRepository.save(product);
+    @Transactional
+    public ProductDto save(ProductDto productDto){
+        return new ProductDto(productRepository.save(productDto.toEntity()));
     }
 
-    public Product update(Product product, int id) throws ProductNotFoundException {
+    @Transactional
+    public ProductDto update(ProductDto productDto, int id) throws ProductNotFoundException {
         Optional<Product> productOptional = productRepository.findById(id);
         if (!productOptional.isPresent())
             throw new ProductNotFoundException(id);
-        product.setId(id);
-        return productRepository.save(product);
+        productDto.setId(id);
+        return new ProductDto(productRepository.save(productDto.toEntity()));
     }
 
-    public Product delete(int id) throws ProductNotFoundException {
+    @Transactional
+    public ProductDto delete(int id) throws ProductNotFoundException {
         Optional<Product> product = productRepository.findById(id);
         if (!product.isPresent())
             throw new ProductNotFoundException(id);
         productRepository.deleteById(id);
-        return product.get();
+        return new ProductDto(product.get());
     }
 }

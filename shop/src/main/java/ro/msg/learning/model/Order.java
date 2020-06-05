@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity(name = "Order")
 @Table(name = "orders", schema = "shop")
@@ -29,4 +30,6 @@ public class Order {
     @Embedded
     private Address address;
 
+    @OneToMany(mappedBy = "order")
+    List<OrderDetail> orderDetailList;
 }
