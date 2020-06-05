@@ -25,8 +25,8 @@ public class OrderController {
     public ResponseEntity<OrderDto> create(){
         List<OrderDetailDto> products = new ArrayList<>();
         products.add(new OrderDetailDto(1,70));
-        products.add(new OrderDetailDto(2,25));
-        products.add(new OrderDetailDto(3,9));
+        products.add(new OrderDetailDto(2,7));
+        products.add(new OrderDetailDto(3,2));
         OrderDto orderDto = new OrderDto(java.time.LocalDateTime.now(), new Address("Romania", "Cluj-Napoca", "Cluj", "Str. Dorobantilor, nr. 186"), products);
         return ResponseEntity.ok(orderService.create(orderDto));
     }

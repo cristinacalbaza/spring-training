@@ -14,7 +14,7 @@ public class StockService {
 
     private final StockRepository stockRepository;
 
-    public List<Location> getAvailableLocations(int productId, int quantity){
+    public List<Stock> getAvailableLocations(int productId, int quantity){
         return stockRepository.findAvailableLocations(productId, quantity);
     }
 

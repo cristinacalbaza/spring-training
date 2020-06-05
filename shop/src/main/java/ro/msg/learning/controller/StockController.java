@@ -20,7 +20,7 @@ public class StockController {
     private final StockService stockService;
 
     @GetMapping("/{id}/{quant}")
-    public ResponseEntity<List<Location>> get(@PathVariable("id") Integer id, @PathVariable("quant") Integer quantity){
+    public ResponseEntity<List<Stock>> get(@PathVariable("id") Integer id, @PathVariable("quant") Integer quantity){
         return ResponseEntity.accepted().body(stockService.getAvailableLocations(id, quantity));
     }
 }

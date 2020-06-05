@@ -11,6 +11,8 @@ import java.util.List;
 
 public interface StockRepository extends JpaRepository<Stock, StockId> {
 
-    @Query("SELECT s.location FROM Stock s WHERE s.product.id = :productId AND s.quantity >= :productQuantity")
-    List<Location> findAvailableLocations(@Param("productId") int productId, @Param("productQuantity") int productQuantity);
+    @Query("SELECT s FROM Stock s WHERE s.product.id = :productId AND s.quantity >= :productQuantity")
+    List<Stock> findAvailableLocations(@Param("productId") int productId, @Param("productQuantity") int productQuantity);
+
+
 }
