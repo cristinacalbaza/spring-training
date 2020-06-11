@@ -18,9 +18,9 @@ public class ProductService {
 
     private final ProductRepository productRepository;
 
-    public ProductDto get(int id) throws ProductNotFoundException {
+    public ProductDto get(int id) {
         Optional<Product> product = productRepository.findById(id);
-        if (!product.isPresent())
+        if (product.isEmpty())
             throw new ProductNotFoundException(id);
         return new ProductDto(product.get());
     }
@@ -37,18 +37,18 @@ public class ProductService {
     }
 
     @Transactional
-    public ProductDto update(ProductDto productDto, int id) throws ProductNotFoundException {
+    public ProductDto update(ProductDto productDto, int id) {
         Optional<Product> productOptional = productRepository.findById(id);
-        if (!productOptional.isPresent())
+        if (productOptional.isEmpty())
             throw new ProductNotFoundException(id);
         productDto.setId(id);
         return new ProductDto(productRepository.save(productDto.toEntity()));
     }
 
     @Transactional
-    public ProductDto delete(int id) throws ProductNotFoundException {
+    public ProductDto delete(int id) {
         Optional<Product> product = productRepository.findById(id);
-        if (!product.isPresent())
+        if (product.isEmpty())
             throw new ProductNotFoundException(id);
         productRepository.deleteById(id);
         return new ProductDto(product.get());

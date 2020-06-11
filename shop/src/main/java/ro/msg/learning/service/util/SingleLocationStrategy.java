@@ -5,7 +5,9 @@ import ro.msg.learning.dto.OrderDetailDto;
 import ro.msg.learning.dto.StockDto;
 import ro.msg.learning.model.Location;
 import ro.msg.learning.model.Stock;
+import ro.msg.learning.repository.ProductRepository;
 import ro.msg.learning.repository.StockRepository;
+import ro.msg.learning.service.exception.OutOfStockException;
 
 import java.util.*;
 
@@ -13,6 +15,7 @@ import java.util.*;
 public class SingleLocationStrategy implements FindLocationStrategy {
 
     private final StockRepository stockRepository;
+    private final ProductRepository productRepository;
 
     @Override
     public List<StockDto> findLocations(List<OrderDetailDto> orderDetails) {
@@ -26,9 +29,10 @@ public class SingleLocationStrategy implements FindLocationStrategy {
 
         List<Location> commonLocations = availableLocations.entrySet().iterator().next().getValue();
         availableLocations.forEach((integer, stocks) -> commonLocations.retainAll(stocks));
-        if (!commonLocations.isEmpty()){
-            orderDetails.forEach(orderDetailDto -> result.add(new StockDto(commonLocations.get(0), orderDetailDto.getProductId(), orderDetailDto.getQuantity())));
+        if (commonLocations.isEmpty()){
+            throw new OutOfStockException();
         }
+        orderDetails.forEach(orderDetailDto -> result.add(new StockDto(commonLocations.get(0), productRepository.getOne(orderDetailDto.getProductId()), orderDetailDto.getQuantity())));
         return result;
     }
 

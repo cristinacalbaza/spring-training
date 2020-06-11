@@ -16,9 +16,9 @@ public class ProductController {
 
     private final ProductService productService;
 
-    @GetMapping("/{id}")
-    public ResponseEntity<ProductDto> get(@PathVariable("id") Integer id){
-        return ResponseEntity.ok(productService.get(id));
+    @GetMapping(value = "/{id}", produces = "application/json")
+    public ProductDto get(@PathVariable("id") Integer id){
+        return productService.get(id);
     }
 
     @GetMapping()
