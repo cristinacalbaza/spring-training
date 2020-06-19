@@ -36,7 +36,8 @@ public class CustomMessageConverter extends AbstractGenericHttpMessageConverter 
             arrayList = Collections.singletonList(o);
         }
 
-        csvMessageConverter.toCsv(type.getClass(), arrayList, outputMessage.getBody());
+        if (!arrayList.isEmpty())
+            csvMessageConverter.toCsv(arrayList.get(0).getClass(), arrayList, outputMessage.getBody());
     }
 
     @Override

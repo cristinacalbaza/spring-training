@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ro.msg.learning.dto.StockExportDto;
-import ro.msg.learning.model.Location;
 import ro.msg.learning.model.Stock;
 import ro.msg.learning.service.ExportStockService;
 import ro.msg.learning.service.StockService;

@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
 import com.fasterxml.jackson.dataformat.csv.CsvSchema;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -23,7 +24,7 @@ public class CSVMessageConverter<T> {
     }
 
     public void toCsv(Class<T> tClass, List<T> list, OutputStream outputStream) throws IOException {
-        schema = mapper.schemaFor(tClass);
+        schema = mapper.schemaFor(tClass).withHeader();
         ObjectWriter writer = mapper.writer(schema.withLineSeparator("\n"));
         writer.writeValue(outputStream, list);
     }
