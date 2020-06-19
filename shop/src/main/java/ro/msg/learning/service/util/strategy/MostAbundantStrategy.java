@@ -1,4 +1,4 @@
-package ro.msg.learning.service.util;
+package ro.msg.learning.service.util.strategy;
 
 import lombok.RequiredArgsConstructor;
 import ro.msg.learning.dto.OrderDetailDto;
@@ -8,6 +8,7 @@ import ro.msg.learning.model.Stock;
 import ro.msg.learning.repository.ProductRepository;
 import ro.msg.learning.repository.StockRepository;
 import ro.msg.learning.service.exception.OutOfStockException;
+import ro.msg.learning.service.util.strategy.FindLocationStrategy;
 
 import java.util.*;
 

@@ -1,4 +1,4 @@
-package ro.msg.learning.service.util;
+package ro.msg.learning.service.util.strategy;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;

@@ -1,7 +1,6 @@
 package ro.msg.learning.service;
 
 import lombok.RequiredArgsConstructor;
-import org.aspectj.weaver.ast.Or;
 import org.springframework.stereotype.Service;
 import ro.msg.learning.dto.OrderDto;
 import ro.msg.learning.dto.StockDto;
@@ -10,7 +9,7 @@ import ro.msg.learning.repository.CustomerRepository;
 import ro.msg.learning.repository.OrderDetailRepository;
 import ro.msg.learning.repository.OrderRepository;
 import ro.msg.learning.repository.StockRepository;
-import ro.msg.learning.service.util.FindLocationStrategy;
+import ro.msg.learning.service.util.strategy.FindLocationStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
