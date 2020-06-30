@@ -1,6 +1,7 @@
 package ro.msg.learning.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +21,10 @@ import java.util.List;
 @RequestMapping("/stock")
 public class StockController {
 
+    @Autowired
     private final ExportStockService exportStockService;
+
+    @Autowired
     private final StockService stockService;
 
     @GetMapping("/{id}/{quant}")

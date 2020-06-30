@@ -8,6 +8,8 @@ import ro.msg.learning.model.Stock;
 import java.io.Serializable;
 
 @Getter @Setter @AllArgsConstructor
+@NoArgsConstructor
+@ToString @EqualsAndHashCode
 @JsonPropertyOrder({"productId", "locationId", "quantity"})
 public class StockExportDto implements Serializable {
 

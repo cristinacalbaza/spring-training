@@ -1,5 +1,6 @@
 package ro.msg.learning.service;
 
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ro.msg.learning.dto.StockExportDto;
@@ -21,4 +22,6 @@ public class ExportStockService {
         stocks.forEach(stock -> result.add(new StockExportDto(stock)));
         return result;
     }
+
+
 }
