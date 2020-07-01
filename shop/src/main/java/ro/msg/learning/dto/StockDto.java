@@ -1,14 +1,13 @@
 package ro.msg.learning.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import ro.msg.learning.model.Location;
 import ro.msg.learning.model.Product;
 import ro.msg.learning.model.Stock;
 import ro.msg.learning.model.StockId;
 
 @Getter @Setter @AllArgsConstructor
+@EqualsAndHashCode @ToString
 public class StockDto {
 
     private Location location;
