@@ -16,8 +16,10 @@ public class ProductDto {
     private String description;
     private BigDecimal price;
     private double weight;
+    private int categoryId;
     private String categoryName;
     private String categoryDescription;
+    private int supplierId;
     private String supplierName;
     private String imageURL;
 
@@ -27,8 +29,10 @@ public class ProductDto {
         description = product.getDescription();
         price = product.getPrice();
         weight = product.getWeight();
+        categoryId = product.getCategory().getId();
         categoryName = product.getCategory().getName();
         categoryDescription = product.getCategory().getDescription();
+        supplierId = product.getSupplier().getId();
         supplierName = product.getSupplier().getName();
         imageURL = product.getImageURL();
     }
@@ -36,7 +40,7 @@ public class ProductDto {
     public Product toEntity(){
 
         return new Product(id, name, description, price, weight,
-                new ProductCategory(0, categoryName, categoryDescription),
-                new Supplier(0, supplierName), imageURL);
+                new ProductCategory(categoryId, categoryName, categoryDescription),
+                new Supplier(supplierId, supplierName), imageURL);
     }
 }

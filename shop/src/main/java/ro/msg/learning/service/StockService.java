@@ -21,7 +21,6 @@ public class StockService {
         return stockRepository.findAvailableLocations(productId, quantity);
     }
 
-    @Transactional
     public StockDto update(StockDto stockDto) {
         Optional<Stock> stockOptional = stockRepository.findById(new StockId(stockDto.getProduct().getId(), stockDto.getLocation().getId()));
         if (stockOptional.isEmpty())
@@ -29,4 +28,11 @@ public class StockService {
         return new StockDto(stockRepository.save(stockDto.toEntity()));
     }
 
+    public StockDto save(StockDto stockDto){
+        return new StockDto(stockRepository.save(stockDto.toEntity()));
+    }
+
+    public void deleteAll(){
+        stockRepository.deleteAll();
+    }
 }

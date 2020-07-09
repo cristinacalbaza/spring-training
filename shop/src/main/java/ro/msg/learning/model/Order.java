@@ -30,6 +30,6 @@ public class Order {
     @Embedded
     private Address address;
 
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "order", orphanRemoval = true)
     List<OrderDetail> orderDetailList;
 }

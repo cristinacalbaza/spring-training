@@ -31,7 +31,6 @@ public class ProductService {
         return productDtos;
     }
 
-    @Transactional
     public ProductDto save(ProductDto productDto){
         return new ProductDto(productRepository.save(productDto.toEntity()));
     }
@@ -52,5 +51,10 @@ public class ProductService {
             throw new ProductNotFoundException(id);
         productRepository.deleteById(id);
         return new ProductDto(product.get());
+    }
+
+    @Transactional
+    public void deleteAll(){
+        productRepository.deleteAll();
     }
 }
