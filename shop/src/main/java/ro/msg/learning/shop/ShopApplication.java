@@ -8,7 +8,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-@Configuration
 @SpringBootApplication
 @ComponentScan(basePackages = {"ro.msg.learning"})
 @EntityScan(basePackages = {"ro.msg.learning.model"})

@@ -1,6 +1,7 @@
 package ro.msg.learning.service;
 
 import lombok.RequiredArgsConstructor;
+import org.aspectj.weaver.ast.Or;
 import org.springframework.stereotype.Service;
 import ro.msg.learning.dto.OrderDto;
 import ro.msg.learning.dto.StockDto;
@@ -30,10 +31,7 @@ public class OrderService {
         Customer customer = customerRepository.getOne(1);
         // run the strategy
         List<StockDto> stockDtos = findLocationStrategy.findLocations(order.getProducts());
-        // substract goods
-        stockDtos.forEach(stockDto -> { stockDto.setQuantity(stockRepository.getOne(stockDto.toEntity().getId()).getQuantity() - stockDto.getQuantity());
-                                        stockService.update(stockDto);
-                                      } );
+
         // save order
         Order createdOrder = order.toEntity();
         createdOrder.setShippedFrom(stockDtos.get(0).getLocation());
@@ -43,6 +41,12 @@ public class OrderService {
         // save Order Details
         List<OrderDetail> orderDetails = getOrderDetails(stockDtos, savedOrder);
         orderDetails.forEach(orderDetailRepository::save);
+
+        // substract goods
+        stockDtos.forEach(stockDto -> { stockDto.setQuantity(stockRepository.getOne(stockDto.toEntity().getId()).getQuantity() - stockDto.getQuantity());
+                                        stockService.update(stockDto);
+        } );
+
         return new OrderDto(savedOrder);
     }
 
@@ -58,6 +62,13 @@ public class OrderService {
 
     public void deleteAll(){
         orderRepository.deleteAll();
+    }
+
+    public List<OrderDto> getAll(){
+        List<Order> orders = orderRepository.findAll();
+        List<OrderDto> result = new ArrayList<>();
+        orders.forEach(order -> result.add(new OrderDto(order)));
+        return result;
     }
 
 }

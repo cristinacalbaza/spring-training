@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import ro.msg.learning.dto.OrderDto;
-import ro.msg.learning.model.Order;
 import ro.msg.learning.service.OrderService;
 
 import java.time.LocalDateTime;
@@ -24,5 +23,10 @@ public class OrderController {
         LocalDateTime now = java.time.LocalDateTime.now();
         orderDto.setCreatedAt(now);
         return orderService.create(orderDto);
+    }
+
+    @GetMapping(produces = "application/json")
+    public List<OrderDto> getAll(){
+        return orderService.getAll();
     }
 }
