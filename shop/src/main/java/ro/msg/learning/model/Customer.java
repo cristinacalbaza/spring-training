@@ -1,12 +1,17 @@
 package ro.msg.learning.model;
 
 import lombok.*;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
 import javax.persistence.*;
 
 @Entity(name = "Customer")
 @Table(name = "customer", schema = "shop")
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor @ToString @EqualsAndHashCode
 public class Customer {
+
+    public static final PasswordEncoder PASSWORD_ENCODER = new BCryptPasswordEncoder();
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,5 +32,9 @@ public class Customer {
 
     @Column(name = "email_address", nullable = false)
     private String EmailAddress;
+
+    public void setPassword(String password) {
+        this.password = PASSWORD_ENCODER.encode(password);
+    }
 
 }
