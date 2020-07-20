@@ -10,7 +10,6 @@ import ro.msg.learning.repository.CustomerRepository;
 import ro.msg.learning.repository.OrderDetailRepository;
 import ro.msg.learning.repository.OrderRepository;
 import ro.msg.learning.repository.StockRepository;
-import ro.msg.learning.service.exception.OutOfStockException;
 import ro.msg.learning.service.util.strategy.FindLocationStrategy;
 
 import java.util.ArrayList;
@@ -30,7 +29,7 @@ public class OrderService {
     public OrderDto create(OrderDto order) {
         Customer customer = customerRepository.getOne(1);
         // run the strategy
-        List<StockDto> stockDtos = findLocationStrategy.findLocations(order.getProducts());
+        List<StockDto> stockDtos = findLocationStrategy.findLocations(order.getProducts(), order.getAddress());
 
         // save order
         Order createdOrder = order.toEntity();

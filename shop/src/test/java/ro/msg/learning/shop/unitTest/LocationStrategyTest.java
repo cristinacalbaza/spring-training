@@ -84,8 +84,9 @@ public class LocationStrategyTest {
 
     @Test
     public void mostAbundantTest(){
+        Address address = new Address("address1", "address1", "address1", "address1");
         MostAbundantStrategy mostAbundantStrategy = new MostAbundantStrategy(stockRepository, productRepository);
-        List<StockDto> actualMostAbundant = mostAbundantStrategy.findLocations(orderDetailDtoList);
+        List<StockDto> actualMostAbundant = mostAbundantStrategy.findLocations(orderDetailDtoList, address);
 
         Assert.assertEquals(2, actualMostAbundant.size());
         Assert.assertEquals(actualMostAbundant.get(0), expectedMostAbundant.get(0));
@@ -94,8 +95,9 @@ public class LocationStrategyTest {
 
     @Test
     public void singleLocationTest(){
+        Address address = new Address("address1", "address1", "address1", "address1");
         SingleLocationStrategy singleLocationStrategy = new SingleLocationStrategy(stockRepository, productRepository);
-        List<StockDto> actualSingleLocation = singleLocationStrategy.findLocations(orderDetailDtoList);
+        List<StockDto> actualSingleLocation = singleLocationStrategy.findLocations(orderDetailDtoList, address);
 
         Assert.assertEquals(2, actualSingleLocation.size());
         Assert.assertEquals(actualSingleLocation.get(0), expectedSingleLocation.get(0));

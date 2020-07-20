@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import ro.msg.learning.dto.OrderDetailDto;
 import ro.msg.learning.dto.StockDto;
+import ro.msg.learning.model.Address;
 import ro.msg.learning.model.Location;
 import ro.msg.learning.model.Product;
 import ro.msg.learning.model.Stock;
@@ -24,7 +25,7 @@ public class SingleLocationStrategy implements FindLocationStrategy {
     private final ProductRepository productRepository;
 
     @Override
-    public List<StockDto> findLocations(List<OrderDetailDto> orderDetails) {
+    public List<StockDto> findLocations(List<OrderDetailDto> orderDetails, Address orderAddress) {
         List<StockDto> result = new ArrayList<>();
         Map<Integer, List<Stock>> productListMap = new LinkedHashMap<>();
 

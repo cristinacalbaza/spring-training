@@ -1,5 +1,5 @@
 package ro.msg.learning.service.util.strategy;
 
 public enum StrategyTypes {
-    SINGLE_LOCATION, MOST_ABUNDANT
+    SINGLE_LOCATION, MOST_ABUNDANT, PROXIMITY
 }
