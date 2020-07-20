@@ -28,8 +28,6 @@ import ro.msg.learning.service.exception.ProductNotFoundException;
 import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @RequiredArgsConstructor
 public class ProximityStrategy implements FindLocationStrategy {
