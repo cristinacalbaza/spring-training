@@ -1,0 +1,27 @@
+h2 {
+  margin: 40px;
+}
+
+a {
+  color: blue;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+table {
+  margin: 40px;
+  border-collapse: collapse;
+  width: 90%;
+  border: 2px solid black;
+  padding: 5px;
+}
+
+td {
+  border: 2px solid black;
+  padding: 5px;
+}
+
+thead {
+  font-weight: bold;
+}
+

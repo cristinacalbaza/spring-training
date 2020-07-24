@@ -1,0 +1,29 @@
+
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+F
+shop-ui/src/styles.css,2\a\2a84c15b4274c55a95f71ecb3e12c488d771c88b
+R
+"shop-ui/src/app/app.component.html,4\6\465a7187770099caec4768e700ac19552cab6d01
+Q
+!shop-ui/src/app/app.component.css,1\d\1df15fd032335e69466ff1027a4d3cbda6d078c0
+U
+%shop-ui/src/app/app.component.spec.ts,6\2\627c5e27a230f05161c604c27df46920338a7c35
+P
+ shop-ui/src/app/app.component.ts,7\d\7dd44362975d65801384062f4d51bcbfdd477d00
+M
+shop-ui/src/app/app.module.ts,2\7\2776b728d38c75c292c8ba89928c4917e0371266
+q
+Ashop-ui/src/app/product-details/product-details.component.spec.ts,4\5\458ace80c8dbddf71d3e18b984693b3f3768d529
+l
+<shop-ui/src/app/product-details/product-details.component.ts,5\2\5261d6ebcf3c3b1db2bf7cd87689348a11698ae5
+e
+5shop/src/main/java/ro/msg/learning/model/Product.java,3\c\3cc1e294ac2ca32f0e164cede7323f24630959fa
+f
+6shop-ui/src/app/product-list/product-list.component.ts,5\2\52766825814206207c206ea2fe726d63e639ece0
+f
+6shop/src/main/java/ro/msg/learning/dto/ProductDto.java,1\3\1370e248c92df227c264c7c56bf4dd5aa922f9a5
+X
+(shop-ui/src/app/product-list/products.ts,7\a\7aec15d5d15e8def0bf73e3649893dfa75290b0c
+h
+8shop-ui/src/app/product-list/product-list.component.html,b\0\b0a8bf5965ac4fe1998366a7a66868b474889a7d
