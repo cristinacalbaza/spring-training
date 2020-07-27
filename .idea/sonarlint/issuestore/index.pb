@@ -27,3 +27,11 @@ X
 (shop-ui/src/app/product-list/products.ts,7\a\7aec15d5d15e8def0bf73e3649893dfa75290b0c
 h
 8shop-ui/src/app/product-list/product-list.component.html,b\0\b0a8bf5965ac4fe1998366a7a66868b474889a7d
+q
+Ashop/src/main/resources/db/migration/V1_11_0__populate_tables.sql,d\d\ddca450e627ee9c752a6be11becbd536f6fc9046
+g
+7shop-ui/src/app/product-list/product-list.component.css,8\8\885e4a1f80a6d294e99861360cf61b587c9dab2b
+U
+%shop-ui/src/app/app-routing.module.ts,4\4\44d896f5498566547ead0f3a158a8acb836b9ac8
+n
+>shop-ui/src/app/product-details/product-details.component.html,9\6\9676c93050fee7b626bef2c3f9f5629183fb26d2

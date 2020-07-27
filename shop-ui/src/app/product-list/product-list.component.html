@@ -22,10 +22,12 @@
         {{ product.price }}
       </td>
       <td>
-        <a>
+        <a [routerLink]="['/product-details', product.id]" routerLinkActive="active">
           >
         </a>
       </td>
     </tr>
   </tbody>
 </table>
+
+<router-outlet></router-outlet>
