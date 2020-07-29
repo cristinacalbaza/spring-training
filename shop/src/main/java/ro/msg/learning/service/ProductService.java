@@ -27,7 +27,9 @@ public class ProductService {
 
     public List<ProductDto> getAll(){
         List<ProductDto> productDtos = new ArrayList<>();
-        productRepository.findAll().forEach(product -> productDtos.add(new ProductDto(product)));
+        productRepository.findAll().forEach(product -> { if (!product.getDescription().equals("DELETED"))
+                                            productDtos.add(new ProductDto(product));
+        });
         return productDtos;
     }
 
@@ -43,14 +45,15 @@ public class ProductService {
         productDto.setId(id);
         return new ProductDto(productRepository.save(productDto.toEntity()));
     }
-
     @Transactional
-    public ProductDto delete(int id) {
+    public ProductDto delete(Integer id) {
         Optional<Product> product = productRepository.findById(id);
         if (product.isEmpty())
             throw new ProductNotFoundException(id);
-        productRepository.deleteById(id);
-        return new ProductDto(product.get());
+        ProductDto productDto = new ProductDto(product.get());
+        productDto.setDescription("DELETED");
+        productDto.setId(id);
+        return new ProductDto(productRepository.save(productDto.toEntity()));
     }
 
     @Transactional

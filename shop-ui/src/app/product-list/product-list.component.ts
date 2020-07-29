@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { products, productTableColumns } from './products';
+import { productTableColumns } from './products';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-product-list',
@@ -9,12 +10,18 @@ import { products, productTableColumns } from './products';
 })
 export class ProductListComponent implements OnInit {
 
-  products = products;
+  products;
   productTableColumns = productTableColumns;
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+    const encodedCredential = "cristina:1234";
+    let headers = new HttpHeaders();
+    headers = headers.append("Authorization", "Basic " + btoa(encodedCredential));
+
+    this.http.get("http://localhost:8080/products", {headers: headers})
+    .subscribe((data) => this.products = data);
   }
 
 }

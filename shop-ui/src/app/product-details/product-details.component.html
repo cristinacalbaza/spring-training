@@ -1,1 +1,32 @@
-<h2 >Product: {{ id }}</h2>
+<h2 >Product: {{ product.name }}</h2>
+
+<button class="editButton">Edit</button>
+
+<button class="deleteButton" (click)="deleteProduct()">Delete</button>
+<br>
+
+<div>
+  <label for="name">Name</label>
+  <input type="text" name="ProductName" id="name" value='{{ product.name }}' readonly>
+  <br>
+  <br>
+  <label for="category">Category</label>
+  <input type="text" name="ProductCategory" id="category" value='{{ product.categoryName }}' readonly>
+  <br>
+  <br>
+  <label for="price">Price</label>
+  <input type="text" name="Price" id="price" value='{{ product.price }}' readonly>
+  <br>
+  <br>
+  <label for="description">Description</label>
+  <p id="description">{{ product.description }}</p>
+</div>
+
+<div *ngIf="product.imageUrl; else noImage">
+  <img src='{{ product.imageUrl }}' width="120" height="90" alt="Product Image">
+</div>
+<ng-template #noImage>
+  <img src="https://sisterhoodofstyle.com/wp-content/uploads/2018/02/no-image-1.jpg" width="300" height="250" alt="Product Image">
+</ng-template>
+
+

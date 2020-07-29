@@ -1,0 +1,44 @@
+h2 {
+  margin: 40px;
+  font-size: 30px;
+  display: inline-block;
+}
+
+p {
+  display: inline-block;
+  font-size: 15px;
+  margin: 10px;
+}
+
+div {
+  display: inline-block;
+}
+
+input {
+  border: 0;
+  font-size: 15px;
+  margin: 10px;
+}
+
+label {
+  font-size: 17px;
+  display: inline-block;
+  width: 140px;
+  text-align: right;
+}
+
+button {
+  border-radius: 8px;
+  font-size: 25px;
+  margin: 10px;
+  display: inline-block;
+}
+
+.editButton {
+  background-color: #0080ff;
+}
+
+.deleteButton {
+  background-color: #FA8072;
+}
+

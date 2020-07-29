@@ -21,7 +21,7 @@ public class ProductController {
         return productService.get(id);
     }
 
-    @GetMapping()
+    @GetMapping(produces = "application/json")
     public ResponseEntity<List<ProductDto>> getAll(){
         return ResponseEntity.accepted().body(productService.getAll());
     }
@@ -36,8 +36,8 @@ public class ProductController {
         return ResponseEntity.accepted().body(productService.update(product, id));
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<ProductDto> delete(@PathVariable("id") Integer id){
-        return ResponseEntity.accepted().body(productService.delete(id));
+    @DeleteMapping(value = "/{id}", produces = "application/json")
+    public ProductDto delete(@PathVariable("id") Integer id){
+        return productService.delete(id);
     }
 }
