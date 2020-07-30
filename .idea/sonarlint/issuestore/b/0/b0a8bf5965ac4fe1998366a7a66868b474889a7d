@@ -1,4 +1,8 @@
 
-F	Web:S5256"%Add "<th>" headers to this "<table>".(É¿÷ıÿÿÿÿ8‰–ûü·.
-TWeb:TableWithoutCaptionCheck" Add a description to this table.(É¿÷ıÿÿÿÿ8‰–ûü·.
-J	Web:S1827	")Remove this deprecated "width" attribute.( õıÅúÿÿÿÿ8ïƒ‡„¸.
+TWeb:TableWithoutCaptionCheck" Add a description to this table.(É¿÷ıÿÿÿÿ8ÎË½Ë¹.
+J	Web:S1827")Remove this deprecated "width" attribute.( õıÅúÿÿÿÿ8Øº¾Ë¹.
+a	Web:S5254"@Add "lang" and/or "xml:lang" attributes to this "<html>" element(œ÷Ãûÿÿÿÿ8µ±øË¹.
+JWeb:BoldAndItalicTagsCheck
+"Replace this <i> tag by <em>.(×¶æ8 ›éË¹.
+JWeb:PageWithoutTitleCheck"Add a <title> tag to this page.(Õ¶¯M8ŞúË¹.
+F	Web:S5256"%Add "<th>" headers to this "<table>".(É¿÷ıÿÿÿÿ8ÎË½Ë¹.

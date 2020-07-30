@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { productTableColumns } from './products';
+import { productTableColumns } from '../products';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({

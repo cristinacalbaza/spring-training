@@ -53,3 +53,13 @@ l
 <shop/src/main/java/ro/msg/learning/shop/ShopApplication.java,5\a\5a7dbdee5a927170abb07df61f0fcc5a1939fa7b
 m
 =shop-ui/src/app/product-details/product-details.component.css,3\a\3a76c512791ad155292ae7ce3b0c2d5911916c95
+K
+shop-ui/src/app/products.ts,5\6\56bf7b2396d5b5c4e82ccd8bcea216c265c7c335
+S
+#shop-ui/src/app/shopping.service.ts,f\7\f7c0e98acdcd4a24cb9230a16ba27e0d7fbd3891
+i
+9shop-ui/src/app/shopping-cart/shopping-cart.component.css,e\a\ea3d9ae6b7f89b6e3fe7afba30f1a8915584d94c
+j
+:shop-ui/src/app/shopping-cart/shopping-cart.component.html,1\c\1c024c07b34b094088a568faef912fa944b8871e
+h
+8shop-ui/src/app/shopping-cart/shopping-cart.component.ts,d\d\ddac7ae0af9dbb57c035d063e892a275e42b560c

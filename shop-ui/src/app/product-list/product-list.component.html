@@ -1,4 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+
 <h2>Products</h2>
+
+<button [routerLink]="['/shopping-cart']" routerLinkActive="active"><i class="material-icons">shopping_cart</i></button>
 
 <table mat-table>
   <thead>
@@ -31,3 +40,5 @@
 </table>
 
 <router-outlet></router-outlet>
+</body>
+</html>

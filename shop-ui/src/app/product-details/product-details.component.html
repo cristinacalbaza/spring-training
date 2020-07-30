@@ -1,8 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+
 <h2 >Product: {{ product.name }}</h2>
 
 <button class="editButton">Edit</button>
 
 <button class="deleteButton" (click)="deleteProduct()">Delete</button>
+
+<button class="addButton" (click)="addToShoppingCart()"><i class="material-icons">add_shopping_cart</i></button>
 <br>
 
 <div>
@@ -28,5 +37,8 @@
 <ng-template #noImage>
   <img src="https://sisterhoodofstyle.com/wp-content/uploads/2018/02/no-image-1.jpg" width="300" height="250" alt="Product Image">
 </ng-template>
+
+</body>
+</html>
 
 

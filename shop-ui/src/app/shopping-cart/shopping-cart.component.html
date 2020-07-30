@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+<h2>Shopping Cart</h2>
+
+<button *ngIf="cartProductList.length" class="checkoutButton" (click)="checkout()">CHECKOUT</button>
+
+<table mat-table>
+  <thead>
+  <tr>
+    <td *ngFor="let column of shoppingCartTableColumns">
+      {{ column.columnName }}
+    </td>
+    <td width="3%">
+    </td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let product of cartProductList">
+    <td>
+      {{ product.categoryName }}
+    </td>
+    <td>
+      {{ product.name }}
+    </td>
+    <td>
+      {{ product.price }}
+    </td>
+    <td>
+      {{ product.quantity }}
+    </td>
+    <td>
+      <i (click)="removeFromShoppingCart(product)" class="material-icons">clear</i>
+    </td>
+  </tr>
+  </tbody>
+</table>
+</body>

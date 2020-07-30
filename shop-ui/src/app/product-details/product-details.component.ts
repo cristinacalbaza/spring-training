@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { ShoppingService } from '../shopping.service';
 
 @Component({
   selector: 'app-product-details',
@@ -9,9 +10,11 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class ProductDetailsComponent implements OnInit {
 
+  @Input() cartProductList;
   product;
+  @Output() productAdded = new EventEmitter();
 
-  constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router) {
+  constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router, private shoppingService: ShoppingService) {
   }
 
   ngOnInit(): void {
@@ -34,6 +37,12 @@ export class ProductDetailsComponent implements OnInit {
                .subscribe((data) => { this.router.navigate(['/product-list']); },
                           response => { window.alert('Product cannot be deleted!'); });
     }
+  }
+
+  addToShoppingCart(){
+    this.shoppingService.addProductToShoppingCart(this.product);
+    window.alert("Product added to Cart!");
+
   }
 
 }

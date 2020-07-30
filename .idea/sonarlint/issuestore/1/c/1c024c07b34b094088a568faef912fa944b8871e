@@ -1,0 +1,7 @@
+
+TWeb:TableWithoutCaptionCheck" Add a description to this table.(É¿÷ıÿÿÿÿ8¶ñ–Ñ¹.
+a	Web:S5254"@Add "lang" and/or "xml:lang" attributes to this "<html>" element(œ÷Ãûÿÿÿÿ8Ë™‡Ñ¹.
+JWeb:PageWithoutTitleCheck"Add a <title> tag to this page.(Õ¶¯M8Ë™‡Ñ¹.
+J	Web:S1827")Remove this deprecated "width" attribute.( õıÅúÿÿÿÿ8¶ñ–Ñ¹.
+F	Web:S5256"%Add "<th>" headers to this "<table>".(É¿÷ıÿÿÿÿ8¶ñ–Ñ¹.
+JWeb:BoldAndItalicTagsCheck$"Replace this <i> tag by <em>.(”ûù‡8ğå±×¹.

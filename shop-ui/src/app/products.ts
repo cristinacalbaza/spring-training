@@ -46,3 +46,20 @@ export const productTableColumns = [
   }
 
 ];
+
+export const shoppingCartTableColumns = [
+
+  {
+    columnName: 'Category'
+  },
+  {
+    columnName: 'Product Name'
+  },
+  {
+    columnName: 'Price'
+  },
+  {
+    columnName: 'Quantity'
+  }
+
+];
