@@ -39,6 +39,12 @@ button {
   padding: 12px 28px;;
 }
 
+.addButton {
+  position:absolute;
+  top: 80px;
+  right: 250px;
+}
+
 i {
   font-size: 30px;
   color: white;
