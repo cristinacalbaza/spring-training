@@ -15,6 +15,5 @@ export class AppComponent {
   }
 
   ngOnInit(){
-    this.dataService.getProductCategories();
   }
 }

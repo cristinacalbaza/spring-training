@@ -17,14 +17,11 @@ export class DataService {
   }
 
   async getProductCategories(){
-        const encodedCredential = "cristina:1234";
-        let headers = new HttpHeaders();
-        headers = headers.append("Authorization", "Basic " + btoa(encodedCredential));
 
-        await this.http.get("http://localhost:8080/productCategory/", { headers: headers })
+        await this.http.get("http://localhost:8080/productCategory/", { headers: this.headers })
                        .subscribe((data) => this.Categories = data );
 
-        await this.http.get("http://localhost:8080/supplier/", { headers: headers })
+        await this.http.get("http://localhost:8080/supplier/", { headers: this.headers })
                  .subscribe((data) => this.Suppliers = data );
    }
 
@@ -36,19 +33,31 @@ export class DataService {
     return this.Suppliers;
    }
 
-   authenticate(username, password){
+   async authenticate(username, password){
       const encodedCredential = username + ":" + password;
+      console.log(username);
       this.headers = new HttpHeaders();
       this.headers = this.headers.append("Authorization", "Basic " + btoa(encodedCredential));
+      console.log(encodedCredential);
 
-      this.http.get("http://localhost:8080/customer/" + username, { headers: this.headers })
-                .subscribe((data) => { if (data) { this.router.navigate(['/product-list']); }
+      await this.http.get("http://localhost:8080/customer/" + username, { headers: this.headers })
+                .subscribe((data) => { if (data) { this.router.navigate(['/product-list']);
+                                                   this.username = username;
+                                                   this.password = password;
+                                                   this.getProductCategories(); }
                                                     },
-                                           err => { window.alert("Wrong username or password!");
+                                           err => { console.log(err);
+                                                    window.alert("Wrong username or password!");
                                                   });
    }
 
    getAuthHeader(){
       return this.headers;
+   }
+
+   isAdmin(){
+      if (this.username === "admin")
+        return true;
+      return false;
    }
 }

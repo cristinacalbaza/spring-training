@@ -7,8 +7,8 @@
 
 <h2>Products</h2>
 
-<button [routerLink]="['/shopping-cart']" routerLinkActive="active"><i class="material-icons">shopping_cart</i></button>
-<button class="addButton" [routerLink]="['/add-product']" routerLinkActive="active">Add</button>
+<button [routerLink]="['/shopping-cart']" routerLinkActive="active" *ngIf="!this.dataService.isAdmin()"><i class="material-icons">shopping_cart</i></button>
+<button class="addButton" [routerLink]="['/add-product']" routerLinkActive="active" *ngIf="this.dataService.isAdmin()">Add</button>
 
 <table mat-table>
   <thead>

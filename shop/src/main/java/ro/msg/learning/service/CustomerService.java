@@ -6,6 +6,8 @@ import org.springframework.transaction.annotation.Transactional;
 import ro.msg.learning.model.Customer;
 import ro.msg.learning.repository.CustomerRepository;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class CustomerService {

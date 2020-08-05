@@ -13,8 +13,11 @@ export class ProductListComponent implements OnInit {
 
   products;
   productTableColumns = productTableColumns;
+  dataService;
 
-  constructor(private dataService: DataService, private http: HttpClient) { }
+  constructor(private dataServ: DataService, private http: HttpClient) {
+      this.dataService = dataServ;
+   }
 
   ngOnInit(): void {
     let headers = this.dataService.getAuthHeader();
@@ -22,5 +25,6 @@ export class ProductListComponent implements OnInit {
     this.http.get("http://localhost:8080/products", {headers: headers})
     .subscribe((data) => this.products = data);
   }
+
 
 }

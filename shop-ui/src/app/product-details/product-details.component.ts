@@ -14,8 +14,10 @@ export class ProductDetailsComponent implements OnInit {
   @Input() cartProductList;
   product;
   @Output() productAdded = new EventEmitter();
+  dataService;
 
-  constructor(private dataService: DataService, private route: ActivatedRoute, private http: HttpClient, private router: Router, private shoppingService: ShoppingService) {
+  constructor(private dataServ: DataService, private route: ActivatedRoute, private http: HttpClient, private router: Router, private shoppingService: ShoppingService) {
+    this.dataService = dataServ;
   }
 
   ngOnInit(): void {

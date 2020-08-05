@@ -7,11 +7,11 @@
 
 <h2 >Product: {{ product.name }}</h2>
 
-<button class="editButton" [routerLink]="['/edit-product', product.id]" routerLinkActive="active">Edit</button>
+<button class="editButton" [routerLink]="['/edit-product', product.id]" routerLinkActive="active" *ngIf="this.dataService.isAdmin()">Edit</button>
 
-<button class="deleteButton" (click)="deleteProduct()">Delete</button>
+<button class="deleteButton" (click)="deleteProduct()" *ngIf="this.dataService.isAdmin()">Delete</button>
 
-<button class="addButton" (click)="addToShoppingCart()"><i class="material-icons">add_shopping_cart</i></button>
+<button class="addButton" (click)="addToShoppingCart()" *ngIf="!this.dataService.isAdmin()"><i class="material-icons">add_shopping_cart</i></button>
 <br>
 
 <div>
