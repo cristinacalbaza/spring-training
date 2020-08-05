@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-edit-product',
@@ -13,14 +14,12 @@ export class EditProductComponent implements OnInit {
   product;
   formdata;
 
-  constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router) {
+  constructor(private dataService: DataService, private route: ActivatedRoute, private http: HttpClient, private router: Router) {
   }
 
   ngOnInit(): void {
     let productId = Number(this.route.snapshot.paramMap.get('id'));
-    const encodedCredential = "cristina:1234";
-    let headers = new HttpHeaders();
-    headers = headers.append("Authorization", "Basic " + btoa(encodedCredential));
+    let headers = this.dataService.getAuthHeader();
     const _this = this;
 
     this.http.get("http://localhost:8080/products/" + productId, {headers: headers})

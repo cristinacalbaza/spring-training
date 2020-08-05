@@ -20,4 +20,8 @@ public class CustomerService {
     public void deleteAll(){
         customerRepository.deleteAll();
     }
+
+    public Customer get(String username){
+        return customerRepository.findByUsername(username);
+    }
 }

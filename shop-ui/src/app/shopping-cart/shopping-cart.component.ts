@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { shoppingCartTableColumns } from '../products';
 import { ShoppingService } from '../shopping.service';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -14,7 +15,7 @@ export class ShoppingCartComponent implements OnInit {
   cartProductList;
   shoppingCartTableColumns = shoppingCartTableColumns;
 
-  constructor(private shoppingService: ShoppingService, private http: HttpClient, private router: Router) {
+  constructor(private dataService: DataService, private shoppingService: ShoppingService, private http: HttpClient, private router: Router) {
    this.updateCartProductList();
    }
 
@@ -31,9 +32,7 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   checkout() {
-    const encodedCredential = "cristina:1234";
-    let headers = new HttpHeaders();
-    headers = headers.append("Authorization", "Basic " + btoa(encodedCredential));
+    let headers = this.dataService.getAuthHeader();
     let options = { headers: headers };
     let products = [];
     this.cartProductList.forEach(function(product) {

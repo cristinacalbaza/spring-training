@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ShoppingService } from '../shopping.service';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-product-details',
@@ -14,23 +15,19 @@ export class ProductDetailsComponent implements OnInit {
   product;
   @Output() productAdded = new EventEmitter();
 
-  constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router, private shoppingService: ShoppingService) {
+  constructor(private dataService: DataService, private route: ActivatedRoute, private http: HttpClient, private router: Router, private shoppingService: ShoppingService) {
   }
 
   ngOnInit(): void {
     let productId = Number(this.route.snapshot.paramMap.get('id'));
-    const encodedCredential = "cristina:1234";
-    let headers = new HttpHeaders();
-    headers = headers.append("Authorization", "Basic " + btoa(encodedCredential));
+    let headers = this.dataService.getAuthHeader();
 
     this.http.get("http://localhost:8080/products/" + productId, {headers: headers})
         .subscribe((data) => this.product = data);
   }
 
   deleteProduct() {
-    const encodedCredential = "cristina:1234";
-    let headers = new HttpHeaders();
-    headers = headers.append("Authorization", "Basic " + btoa(encodedCredential));
+    let headers = this.dataService.getAuthHeader();
 
     if (confirm('Are you sure you want to remove the "' + this.product.name + '" product?"')){
       this.http.delete("http://localhost:8080/products/" + this.product.id, {headers: headers})

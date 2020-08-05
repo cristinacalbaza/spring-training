@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+<div>
+  <form name="login" [formGroup]="formdata" (ngSubmit)="onClickSubmit(formdata.value)" (keydown.enter)="$event.preventDefault()">
+    <label for="username">Name</label>
+    <input type="text" class="fortextbox" id="username" name="username" placeholder="Username" formControlName="username">
+    <br/>
+
+    <label for="password">Password</label>
+    <input type="password" class="fortextbox" id="password" name="password" placeholder="Password" formControlName="password">
+    <br/>
+
+    <button [disabled]="!formdata.valid">Login</button>
+  </form>
+</div>
+
+</body>
+</html>

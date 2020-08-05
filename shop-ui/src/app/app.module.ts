@@ -10,10 +10,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { ShoppingService } from './shopping.service';
 import { DataService } from './data.service';
+import { LoginGuard } from './login.guard';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { AddProductComponent } from './add-product/add-product.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { AddProductComponent } from './add-product/add-product.component';
     ProductListComponent,
     ShoppingCartComponent,
     EditProductComponent,
-    AddProductComponent
+    AddProductComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,7 @@ import { AddProductComponent } from './add-product/add-product.component';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [ShoppingService, DataService],
+  providers: [ShoppingService, DataService, LoginGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

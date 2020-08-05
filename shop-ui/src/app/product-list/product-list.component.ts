@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { productTableColumns } from '../products';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-product-list',
@@ -13,12 +14,10 @@ export class ProductListComponent implements OnInit {
   products;
   productTableColumns = productTableColumns;
 
-  constructor(private http: HttpClient) { }
+  constructor(private dataService: DataService, private http: HttpClient) { }
 
   ngOnInit(): void {
-    const encodedCredential = "cristina:1234";
-    let headers = new HttpHeaders();
-    headers = headers.append("Authorization", "Basic " + btoa(encodedCredential));
+    let headers = this.dataService.getAuthHeader();
 
     this.http.get("http://localhost:8080/products", {headers: headers})
     .subscribe((data) => this.products = data);

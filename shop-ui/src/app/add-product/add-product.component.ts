@@ -44,9 +44,7 @@ export class AddProductComponent implements OnInit {
       this.product.description = data.description;
       this.product.weight = data.weight;
 
-      const encodedCredential = "cristina:1234";
-      let headers = new HttpHeaders();
-      headers = headers.append("Authorization", "Basic " + btoa(encodedCredential));
+      let headers = this.dataService.getAuthHeader();
 
       this.http.post("http://localhost:8080/products/", this.product, { headers: headers })
                .subscribe((data) => { if (data) {
